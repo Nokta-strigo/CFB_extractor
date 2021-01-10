@@ -1,9 +1,10 @@
-Util to check validity, view directory structure and extract stream data from CFB files.
+Util to check validity, view directory structure and extract stream data from
+CFB files. Often extracted streams are not human-readable and need more
+processing to be useful.
 
 CFB is a universal file format, used in MSOffice before 2007 (doc, xls, ...) and less widely in Office 2007+ (for example vbaProject.bin is CFB file).
 
-cfb_parser.py [-h] [-s] [-d] [-f] [-v] [-q] [--no-magic]
-                     [inputfile [inputfile ...]]
+cfb_parser.py [-h] [-s] [-d] [-f] [-v] [-q] [--no-magic] inputfile [inputfile ...]
 
 Positional arguments:
 - inputfile   Input file name

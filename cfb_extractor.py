@@ -505,12 +505,17 @@ class DirectoryEntry:
 
 if __name__ == "__main__":
     from argparse import ArgumentParser
-    arg_parser = ArgumentParser(description='Util to check validity, view directory structure and extract stream data from CFB files. CFB is a universal file format,'
-                                            ' used in MSOffice before 2007 (doc, xls, ...) and less widely in Office 2007+ (for example vbaProject.bin is CFB file).')
-    arg_parser.add_argument('inputfile', help="Input file name", nargs='*')
-    arg_parser.add_argument('-s', action='store_true', help="Save objects in file to directory tree")
-    arg_parser.add_argument('-d', action='store_true', help="Save all dangling (not connected to directory tree) streams and ministreams")
-    arg_parser.add_argument('-f', action='store_true', help="Clean output directory if exists")
+    arg_parser = ArgumentParser(description='Util to check validity, view directory structure and extract stream data from CFB files. '
+                                            'Often extracted streams are not human-readable and need more processing to be useful. '
+                                            'CFB is a universal file format, used in MSOffice before 2007 (doc, xls, ...) '
+                                            'and less widely in Office 2007+ (for example vbaProject.bin is CFB file).')
+    arg_parser.add_argument('inputfile', help="Input file name. If it's a directory, will try to parce all the files right in the directory.", nargs='*')
+    arg_parser.add_argument('-s', action='store_true', help="Save objects in file to directory tree. Will create directory "
+                                                            "<input_file_name>.extracted in the same folder as input file.")
+    arg_parser.add_argument('-d', action='store_true', help="Save all dangling (not connected to directory tree) streams "
+                                                            "and ministreams.  Will create directory <input_file_name>.extracted in the same folder as input file. "
+                                                            "The streams are saved into 'dangling_streams' subdirectory. Name of the file - number of the 1st sector of the stream.")
+    arg_parser.add_argument('-f', action='store_true', help="Clean output directory for -s or -d options if exists")
     arg_parser.add_argument('-v', action='count', default=0, help="Be Verbose (use several times to be more verbose)")
     arg_parser.add_argument('-q', action='count', default=0, help="Be quite, output nothing on errors")
     arg_parser.add_argument('--no-magic', action='store_true', help="Parse file even if magic is wrong")
