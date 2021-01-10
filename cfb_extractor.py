@@ -1,9 +1,4 @@
 #!/usr/bin/python3
-"""https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-cfb/53989ce4-7b05-4f8d-829b-d08d6148375b [[MS-CFB]: Compound File Binary File Format]
-https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-oleds/85583d21-c1cf-4afe-a35f-d6701c5fbb6f  [[MS-OLEDS]: Object Linking and Embedding (OLE) Data Structures]
-https://docs.microsoft.com/en-us/openspecs/office_file_formats/ms-doc/ccd7b486-7881-484c-a137-51170af7cc22  [[MS-DOC]: Word (.doc) Binary File Format]
-"""
-
 from struct import pack, unpack, iter_unpack
 from collections import deque
 from enum import Enum, IntEnum
